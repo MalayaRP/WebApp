@@ -7,6 +7,10 @@ pipeline {
                 checkout scm
                 }
            }
+            stage('Initialize'){
+        def dockerHome = tool 'mydocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+            }
            stage('Build Image') {
                 steps {
                 sh 'docker build -t moleculevis .'
