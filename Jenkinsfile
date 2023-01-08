@@ -9,12 +9,12 @@ pipeline {
            }
            stage('Build Image') {
                 steps {
-                sh 'sudo docker build -t moleculevis .'
+                sh 'docker build -t moleculevis .'
                 }
            }
            stage('Run Image') {
                 steps {
-                sh 'sudo docker run -d -p 8501:8501 --name moleculevis moleculevis:v1'
+                sh 'docker run -d -p 8501:8501 --name moleculevis moleculevis:v1'
                 }
            }
            stage('Testing'){
